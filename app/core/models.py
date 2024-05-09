@@ -1,9 +1,8 @@
-from sqlalchemy.orm import DeclarativeMeta, declarative_base
-from pydantic import BaseModel
+from sqlalchemy.orm import declarative_base
 from sqlalchemy import Column, String, Integer, ForeignKey, Boolean
 
-Base = declarative_base()
-
+# Base = declarative_base()
+from .db import Base
 
 class Services(Base):
     __tablename__ = "services"
@@ -11,3 +10,4 @@ class Services(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(255), unique=True, nullable=False)
     is_active = Column(Boolean(), nullable=False, default=True)
+
